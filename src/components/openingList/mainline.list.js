@@ -1,4 +1,5 @@
-import OpeningElements from "../openingElements/openingElements";
+import OpeningElements from "../mainline/mainline";
+
 import "./openingList.css";
 
 const OpeningList = ({ mainlines }) => (
