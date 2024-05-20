@@ -1,91 +1,68 @@
-import { useState, useEffect } from 'react';
-import OpeningList from './components/openingList/mainline.list';
-import SearchBox from './components/searchbox/mainline.searchbox';
-import { getMainlines } from './data/mainlines'; 
+import React, { useState } from 'react';
+import { getMainlines } from './components/data.mainlines';
+import SortBlock from './components/sortblock'; 
+import './App.css'; 
 
 const App = () => {
-  const [searchField, setSearchField] = useState('');
-  const [mainlines, setMainlines] = useState([]);
-  const [filteredMainlines, setFilteredMainlines] = useState([]);
+  const mainlines = getMainlines();
+  const [sortBy, setSortBy] = useState('name');
 
-  useEffect(() => {
-    // Call getMainlines function to fetch data
-    const mainlinesData = getMainlines();
-    setMainlines(mainlinesData);
-    setFilteredMainlines(mainlinesData); // Set filteredMainlines initially to the same data
-  }, []);
-
-  useEffect(() => {
-    const newFilteredMainlines = mainlines.filter(mainline => {
-      return mainline.title.toLowerCase().includes(searchField.toLowerCase());
-    });
-    setFilteredMainlines(newFilteredMainlines);
-  }, [mainlines, searchField]);
-
-  const onSearchChange = (event) => {
-    setSearchField(event.target.value);
+  const handleSortChange = (e) => {
+    setSortBy(e.target.value);
   };
 
+  const sortedMainlines = [...mainlines].sort((a, b) => {
+    switch (sortBy) {
+      case 'name':
+        return a.title.localeCompare(b.title);
+      case 'usage':
+        return b.Rating.Usage - a.Rating.Usage;
+      case 'difficulty':
+        return a.Rating.Difficulty - b.Rating.Difficulty;
+      default:
+        return 0;
+    }
+  });
+
+  const groupedMainlines = sortedMainlines.reduce((acc, mainline) => {
+    const { category } = mainline;
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(mainline);
+    return acc;
+  }, {});
+
   return (
-    <div className='App'>
-      <h1 className='app-title'>Gallery</h1>
-      <SearchBox
-        className='mainline-search-box'
-        onChangeHandler={onSearchChange}
-        placeholder='Search mainlines'
-      />
-      <openingList mainlines={filteredMainlines} />
+    <div className="App">
+      <h1>Chess Openings</h1>
+      <div className="sort-block-container">
+        <SortBlock sortBy={sortBy} handleSortChange={handleSortChange} />
+      </div>
+      {Object.keys(groupedMainlines).map((category) => (
+        <div key={category} className="category-section">
+          <h2 className="category-title">{category}</h2>
+          <ul className="openings-list">
+            {groupedMainlines[category].map((mainline) => (
+              <li key={mainline.id} className="opening-item">
+                <h3>{mainline.title}</h3>
+                <img
+                  src={process.env.PUBLIC_URL + '/images/openings/' + mainline.cover}
+                  alt={mainline.title}
+                />
+                <p>{mainline.description}</p>
+                <div className="ratings">
+                  <span className="rating-bubble">Usage: {mainline.Rating.Usage}</span>
+                  <span className="rating-bubble">Difficulty: {mainline.Rating.Difficulty}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+      <button className="next-page-button">Next Page</button>
     </div>
   );
 };
 
 export default App;
-
-// import { useState, useEffect } from 'react';
-
-// import OpeningList from './components/openingList/openingList'
-// import SearchBox from'./components/searchbox/searchbox'
-// import './App.css';
-
-// const App = () => {
-//   const [searchField, setSearchField] = useState(''); 
-//   const [mainlines, setMainlines] = useState([]);
-//   const [filteredMainlines, setFilterMainlines] = useState(mainlines);
-
-//   useEffect(() => {
-//     fetch('')
-//     .then((response) => response.json())
-//     .then((users) => setMainlines(users));
-//   }, []);
-
-// useEffect(() => {
-//   const newFilteredMainlines = mainlines.filter((mainlines) => {
-//     return mainlines.name.toLocaleLowerCase().includes(searchField);
-//   });
-  
-//   setFilterMainlines(newFilteredMainlines);
-// }, [mainlines, searchField]);
-
-//   const onSearchChange = (event) => {
-//     const searchFieldString = event.target.value.toLocaleLowerCase();
-//     setSearchField(searchFieldString);
-//   };
-
-//   return(
-//     <div className='App'>
-//       <h1 className='app-title'>Gallery</h1>
-    
-//       <SearchBox
-//         className='mainline-search-box'
-//         onChangeHandler={onSearchChange}
-//         placeholder='search mainlines'
-//       />
-//       <OpeningList mainlines={filteredMainlines} />
-//     </div>
-
-//   )
-// }
-
-
-// export default App;
-
