@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import { getMainlines } from '../components/data.mainlines';
-import SortBlock from '../components/sortblock'; // Import SortBlock component
-import '../App.css'; // Ensure your CSS file is imported
+import { mainline } from '../../components/data.mainlines';
+import SortBlock from '../../components/sortblock';
+import './gallery.css';
 
 const Gallery = () => {
-  const mainlines = getMainlines();
   const [sortBy, setSortBy] = useState('name'); 
-  
+
   const handleSortChange = (e) => {
     setSortBy(e.target.value);
   };
 
-  const sortedMainlines = [...mainlines].sort((a, b) => {
+  const sortedMainlines = [...mainline].sort((a, b) => {
     switch (sortBy) {
       case 'name':
         return a.title.localeCompare(b.title);
@@ -33,13 +32,16 @@ const Gallery = () => {
     return acc;
   }, {});
 
+  // Order the categories manually
+  const orderedCategories = ['King\'s Pawn', 'Queen\'s Pawn','Other'];
+
   return (
-    <div className="App">
-      <h1>Chess Openings</h1>
+    <div>
+      <h1 className='gallery-title'>Chess Openings</h1>
       <div className="sort-block-container">
         <SortBlock sortBy={sortBy} handleSortChange={handleSortChange} />
       </div>
-      {Object.keys(groupedMainlines).map((category) => (
+      {orderedCategories.map((category) => (
         <div key={category} className="category-section">
           <h2 className="category-title">{category}</h2>
           <ul className="openings-list">

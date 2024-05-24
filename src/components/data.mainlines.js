@@ -1,4 +1,4 @@
-const data = [
+export const mainline = [
  {  id: 1 ,
     title: "Alekhine Defense",
     description: 
@@ -178,7 +178,7 @@ const data = [
  {  id: 17 ,
     title: "Sicillian Defense",
     description: 
-        "Sicillian Defense starts with 1.e4 c5",
+        "Sicillian Defense starts with 1.e4 c5.",
     category: "King's Pawn",
     cover: "Sicillian Defense.jpg",
     Rating:{
@@ -189,7 +189,7 @@ const data = [
  {  id: 18 ,
     title: "Vienna Opening",
     description: 
-        "Vienna Opening starts with 1. e4 e5 2. Nc3",
+        "Vienna Opening starts with 1. e4 e5 2. Nc3.",
     category: "King's Pawn",
     cover: "Vienna Opening.jpg",
     Rating:{
@@ -197,10 +197,180 @@ const data = [
         Difficulty: 8,
     },
  },
+ {  id: 19 ,
+    title: "Blackmar-Diemer Gambit",
+    description: 
+        "Blackmar-Diemer Gambit starts with 1. d4 d5 2. Nc3 Nf6 3. e4.",
+    category: "Queen's Pawn",
+    cover: "Blackmar-Diemer Gambit.jpg",
+    Rating:{
+        Usage: 1,
+        Difficulty: 7,
+    },
+ },
+ {  id:  20,
+    title: "Budapest Gambit",
+    description: 
+        "Budapest Gambit starts with 1. d4 Nf6 2. c4 e5.",
+    category: "Queen's Pawn",
+    cover: "Budapest Gambit.jpg",
+    Rating:{
+        Usage: 1,
+        Difficulty: 8,
+    },
+ },
+ {  id: 21,
+    title: "Dutch Defense",
+    description: 
+        "Dutch Defense starts with 1. d4 f5.",
+    category: "Queen's Pawn",
+    cover: "Dutch Defense.jpg",
+    Rating:{
+        Usage: 8,
+        Difficulty: 6,
+    },
+ },
+ {  id:  22,
+    title: "Englund Gambit",
+    description: 
+        "Englund Gambit starts with 1. d4 e5.",
+    category: "Queen's Pawn",
+    cover: "Englund Gambit.jpg",
+    Rating:{
+        Usage: 1,
+        Difficulty: 9,
+    },
+ },
+ {  id:  23,
+    title: "Grünfeld Defense",
+    description: 
+        "Grünfeld Defense starts with 1. d4 Nf6 2. c4 g6 3. Nc3 d5.",
+    category: "Queen's Pawn",
+    cover: "Grünfeld Defense.jpg",
+    Rating:{
+        Usage: 7,
+        Difficulty: 5,
+    },
+ },
+ {  id:  24,
+    title: "King's Indian Defense",
+    description: 
+        "King's Indian Defense starts with 1. d4 Nf6 2. c4 g6.",
+    category: "Queen's Pawn",
+    cover: "King's Indian Defense.jpg",
+    Rating:{
+        Usage: 8,
+        Difficulty: 5,
+    },
+ },
+ {  id:  25,
+    title: "Queen's Gambit",
+    description: 
+        "Queen's Gambit starts with 1.d4 d5 2. c4.",
+    category: "Queen's Pawn",
+    cover: "Queen's Gambit.jpg",
+    Rating:{
+        Usage: 10,
+        Difficulty: 4,
+    },
+ },
+ {  id:  26,
+    title: "Torre Attack",
+    description: 
+        "Torre Attack starts with 1. d4 d5 2. Nf3 Nf6 3. Bg5",
+    category: "Queen's Pawn",
+    cover: "Torre Attack.jpg",
+    Rating:{
+        Usage: 5,
+        Difficulty: 3,
+    },
+ },
+ {  id:  27,
+    title: "Trompowsky Attack",
+    description: 
+        "Trompowsky Attack starts with 1. d4 Nf6 2. Bg5",
+    category: "Queen's Pawn",
+    cover: "Trompowsky Attack.jpg",
+    Rating:{
+        Usage: 7,
+        Difficulty: 6,
+    },
+ },
+ {  id: 28,
+    title: "Modern Defense",
+    description: 
+        "Modern Defense starts with 1. e4 g6 2. d4 Bg7.",
+    category: "King's Pawn",
+    cover: "Modern Defense.jpg",
+    Rating:{
+        Usage: 7,
+        Difficulty: 6,
+    },
+ },
+ {  id:  29,
+    title: "English Opening",
+    description: 
+        "English Opening starts with 1. c4.",
+    category: "Other",
+    cover: "English Opening.jpg",
+    Rating:{
+        Usage: 7,
+        Difficulty: 5,
+    },
+ },
+ {  id:  30,
+    title: "King's Indian Attack",
+    description: 
+        "King's Indian Attack starts with 1. Nf3 d5 2. g3 Nf6 3. Bg2.",
+    category: "Other",
+    cover: "King's Indian Attack.jpg",
+    Rating:{
+        Usage: 7,
+        Difficulty: 6,
+    },
+ },
+ {  id:  31,
+    title: "Reti Opening",
+    description: 
+        "Reti Opening starts with 1. Nf3 d5 2. c4.",
+    category: "Other",
+    cover: "Reti Opening.jpg",
+    Rating:{
+        Usage: 6,
+        Difficulty: 5,
+    },
+ },
+ {  id:  32,
+    title: "Bird's Opening",
+    description: 
+        "Bird's Opening starts with 1. f4.",
+    category: "Other",
+    cover: "Bird's Opening.jpg",
+    Rating:{
+        Usage: 3,
+        Difficulty: 9,
+    },
+ },
+ {  id:  33,
+    title: "Polish Opening",
+    description: 
+        "Polish Opening starts with 1. b4.",
+    category: "Other",
+    cover: "Polish Opening.jpg",
+    Rating:{
+        Usage: 2,
+        Difficulty: 5,
+    },
+ },
+ {  id:  34,
+    title: "Grob Opening",
+    description: 
+        "Grob Opening starts with 1. g4.",
+    category: "Other",
+    cover: "Grob Opening.jpg",
+    Rating:{
+        Usage: 2,
+        Difficulty: 6,
+    },
+ },
 ]
-
-const getMainlines = () => {
-    return data;
-}
-
-export {getMainlines}
