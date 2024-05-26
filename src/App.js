@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './routes/home/home';
 import Gallery from './routes/gallery/gallery';
 import Navigation from './components/navigation.bar.js';
+import ChessBoard from './routes/Board/board.js'
 import './App.css';
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/board" element={<ChessBoard />} />
           </Routes>
         </div>
       </div>

@@ -17,6 +17,9 @@ const Navigation = () => {
           <li className={location.pathname === '/gallery' ? 'active' : ''}>
             <Link to="/gallery">Gallery</Link>
           </li>
+            <li className={location.pathname === '/board' ? 'active' : ''}>
+            <Link to="/board"> Board</Link>
+          </li>
         </ul>
       </nav>
     </div>
