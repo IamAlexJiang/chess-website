@@ -1,54 +1,73 @@
-/* Navigation.css */
+/* navigation.bar.css */
 .sidebar {
-    width: 200px;
-    background-color: #333;
-    padding-top: 20px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-  }
-  
-  .logo {
-    text-align: center;
-    padding: 10px;
-    background-color: #00224E;
-    color: #fff;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .sidebar nav ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar nav ul li {
-    padding: 10px;
-    text-align: left;
-  }
-  
-  .sidebar nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    display: block;
-    font-weight: bold;
-    padding: 15px 20px;
-    position: relative;
-    background-color: #00224E;
-    border-radius: 0 25px 25px 0;
-  }
-  
-  .sidebar nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    display: block;
-    font-weight: bold;
-  }
-  
-  .sidebar nav ul li a:hover {
-    background-color: #575757;
-  }
-  
+  width: 200px;
+  background-color: #333;
+  padding-top: 20px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 1000; /* Ensures the sidebar is above other elements */
+}
+
+.logo {
+  text-align: center;
+  padding: 10px;
+  background-color: #00224E;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.sidebar nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  padding: 10px;
+  text-align: left;
+}
+
+.sidebar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  font-weight: bold;
+  padding: 15px 20px;
+  position: relative;
+  background-color: #00224E;
+  border-radius: 0 25px 25px 0;
+}
+
+.sidebar nav ul li a:hover {
+  background-color: #575757;
+}
+
+.sign-in {
+  background-color: #ADD8E6; /* Light blue color */
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-left: auto;
+  text-align: center;
+}
+
+.sign-in a {
+  color: #000; /* Black text color */
+  text-decoration: none;
+  display: block;
+}
+
+.sign-in a:hover {
+  background-color: #87CEEB; /* Slightly darker blue on hover */
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+/* Ensures the content is not hidden behind the fixed sidebar */
+.content {
+  margin-left: 200px; /* This should match the width of your sidebar */
+  padding: 20px;
+}

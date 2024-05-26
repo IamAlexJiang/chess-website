@@ -12,6 +12,11 @@ html, body {
   flex-direction: column; /* Ensure it stacks vertically */
 }
 
+/* App.css */
+.content {
+  margin-left: 200px; /* This should match the width of your sidebar */
+  padding: 20px;
+}
 
 
 /* Rest of your existing CSS */
