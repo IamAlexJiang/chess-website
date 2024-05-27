@@ -1,14 +1,16 @@
-// Navigation.js
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './navigation.bar.css';
+import { ReactComponent as PawnLogo } from '../../logo.svg'; // Adjust the path according to your project structure
 
 const Navigation = () => {
   const location = useLocation();
 
   return (
     <div className="sidebar">
-      <div className="logo">Logo</div>
+      <div className="logo">
+        <PawnLogo />  {/* Render the SVG component here */}
+      </div>
       <nav>
         <ul>
           <li className={location.pathname === '/' ? 'active' : ''}>
@@ -17,11 +19,11 @@ const Navigation = () => {
           <li className={location.pathname === '/gallery' ? 'active' : ''}>
             <Link to="/gallery">Gallery</Link>
           </li>
-            <li className={location.pathname === '/board' ? 'active' : ''}>
-            <Link to="/board"> Board</Link>
+          <li className={location.pathname === '/board' ? 'active' : ''}>
+            <Link to="/board">Board</Link>
           </li>
-          <li className="sign-in">
-            <Link to='/sign-in'>Sign In</Link>
+          <li className="auth">
+            <Link to="/auth">Sign In</Link>
           </li>
         </ul>
       </nav>

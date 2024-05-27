@@ -11,7 +11,8 @@
   z-index: 1000; /* Ensures the sidebar is above other elements */
 }
 
-.logo {
+
+.PawnLogo {
   text-align: center;
   padding: 10px;
   background-color: #00224E;
@@ -19,6 +20,11 @@
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 20px;
+}
+
+.PawnLogo svg {
+  width: 100px; /* Adjust the size of the SVG as needed */
+  height: auto;
 }
 
 .sidebar nav ul {
@@ -52,18 +58,6 @@
   border-radius: 5px;
   margin-left: auto;
   text-align: center;
-}
-
-.sign-in a {
-  color: #000; /* Black text color */
-  text-decoration: none;
-  display: block;
-}
-
-.sign-in a:hover {
-  background-color: #87CEEB; /* Slightly darker blue on hover */
-  border-radius: 5px;
-  padding: 10px 20px;
 }
 
 /* Ensures the content is not hidden behind the fixed sidebar */
