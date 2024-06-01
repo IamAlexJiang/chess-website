@@ -1,34 +1,80 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import './navigation.bar.css';
-import { ReactComponent as PawnLogo } from '../../logo.svg'; // Adjust the path according to your project structure
+import React, { Fragment, useContext } from 'react';
+import { Outlet, Link } from 'react-router-dom';
+
+import { UserContext } from '../../contexts/user.context';
+
+import { ReactComponent as PawnLogo } from '../../logo.svg';
+import { signOutUser } from '../../utils/firebase/firebase.utils'
+
+import './navigation.bar.scss';
 
 const Navigation = () => {
-  const location = useLocation();
-
+  const { currentUser } = useContext(UserContext);
+  
   return (
-    <div className="sidebar">
-      <div className="logo">
-        <PawnLogo />  {/* Render the SVG component here */}
+    <Fragment>
+      <div className='sidebar'>
+        <Link to='/' className='PawnLogo'>
+          <PawnLogo />
+        </Link>
+        <div className='nav-links-container'>
+          <Link className='nav-link' to='/gallery'>
+            Gallery
+          </Link>
+          <Link className='nav-link' to='/board'>
+            Board
+          </Link>
+            {currentUser ? (
+              <span className='nav-link' onClick={signOutUser}>
+                Sign Out
+              </span>
+            ) : (
+              <Link className='nav-link' to='/auth'>
+                Sign In
+              </Link>
+            )}
+        </div>
       </div>
-      <nav>
-        <ul>
-          <li className={location.pathname === '/' ? 'active' : ''}>
-            <Link to="/">Home</Link>
-          </li>
-          <li className={location.pathname === '/gallery' ? 'active' : ''}>
-            <Link to="/gallery">Gallery</Link>
-          </li>
-          <li className={location.pathname === '/board' ? 'active' : ''}>
-            <Link to="/board">Board</Link>
-          </li>
-          <li className="auth">
-            <Link to="/auth">Sign In</Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
+      <Outlet />
+    </Fragment>
   );
 };
 
 export default Navigation;
+
+
+
+
+
+// import Fragment from 'react'
+// import { Outlet, Link } from 'react-router-dom';
+
+// import { ReactComponent as PawnLogo } from '../../logo.svg'; 
+
+// import './navigation.bar.scss'
+
+// const Navigation = () => {
+//   return (
+//     <Fragment>
+//       <div className='navigation'>
+//         <link className='logo-container' to='/'>
+//           <PawnLogo className='logo'/>
+//         </link>
+//         <div className='nav-links-container'>
+//           <Link className='nav-link' to='/gallery'>
+//             Gallery
+//           </Link> 
+//           <Link className='nav-link' to='/board'>
+//             Board
+//           </Link> 
+//           <Link className='nav-link' to='/auth'>
+//             Sign In
+//           </Link> 
+//         </div>
+//       </div>
+//       <Outlet />
+//     </Fragment>
+//   );
+// };
+
+// export default Navigation

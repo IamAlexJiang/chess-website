@@ -1,6 +1,5 @@
-/* navigation.bar.css */
 .sidebar {
-  width: 200px;
+  width: 220px;
   background-color: #333;
   padding-top: 20px;
   height: 100vh;
@@ -11,8 +10,8 @@
   z-index: 1000; /* Ensures the sidebar is above other elements */
 }
 
-
 .PawnLogo {
+  display: block;
   text-align: center;
   padding: 10px;
   background-color: #00224E;
@@ -27,17 +26,14 @@
   height: auto;
 }
 
-.sidebar nav ul {
-  list-style-type: none;
-  padding: 0;
+.nav-links-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  margin: 0; /* Reset the default margin */
 }
 
-.sidebar nav ul li {
-  padding: 10px;
-  text-align: left;
-}
-
-.sidebar nav ul li a {
+.nav-link {
   color: #fff;
   text-decoration: none;
   display: block;
@@ -46,22 +42,10 @@
   position: relative;
   background-color: #00224E;
   border-radius: 0 25px 25px 0;
+  margin-bottom: 23px; /* Add some spacing between the links */
 }
 
-.sidebar nav ul li a:hover {
+.nav-link:hover,
+.nav-link:active {
   background-color: #575757;
-}
-
-.sign-in {
-  background-color: #ADD8E6; /* Light blue color */
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-left: auto;
-  text-align: center;
-}
-
-/* Ensures the content is not hidden behind the fixed sidebar */
-.content {
-  margin-left: 200px; /* This should match the width of your sidebar */
-  padding: 20px;
 }
