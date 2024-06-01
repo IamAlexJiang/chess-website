@@ -2,7 +2,7 @@ import { useState, useContext, Fragment } from 'react';
 import { CategoriesContext } from '../../contexts/categories.context.jsx';
 import SortBlock from './sortblock'; 
 import { sortMainlines } from './sortblock'; // Correct import
-import MainlineCard from '../../components/mainline-card/mainline-card.components';
+import MainlineCard from './content/mainline-card/mainline-card.components.jsx';
 import './gallery.scss';
 
 const Gallery = () => {
