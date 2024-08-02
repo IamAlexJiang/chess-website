@@ -1,12 +1,12 @@
 import { useState, useContext, Fragment } from 'react';
-import { CategoriesContext } from '../../contexts/categories.context.jsx';
+import { OpeningsContext } from '../../contexts/categories.context.jsx';
 import SortBlock from './sortblock'; 
 import { sortMainlines } from './sortblock'; // Correct import
 import MainlineCard from './content/mainline-card/mainline-card.components.jsx';
 import './gallery.scss';
 
 const Gallery = () => {
-  const { categoriesMap } = useContext(CategoriesContext);
+  const { OpeningsMap } = useContext(OpeningsContext);
   const [sortBy, setSortBy] = useState('name');
 
   const handleSortChange = (value) => {
@@ -20,8 +20,8 @@ const Gallery = () => {
         <SortBlock handleSortChange={handleSortChange} />
       </div>
       
-      {Object.keys(categoriesMap).map(title => {
-        const sortedMainlines = sortMainlines(categoriesMap[title], sortBy);
+      {Object.keys(Map).map(title => {
+        const sortedMainlines = sortMainlines(OpeningsMap[title], sortBy);
         return (
           <Fragment key={title}>
             <div className="category-section">

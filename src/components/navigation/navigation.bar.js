@@ -21,6 +21,9 @@ const Navigation = () => {
           <Link className='nav-link' to='/gallery'>
             Gallery
           </Link>
+          <Link className='nav-link' to='/endgame'>
+            Endgame
+          </Link>
           <Link className='nav-link' to='/board'>
             Board
           </Link>

@@ -76,7 +76,21 @@ const firebaseConfig = {
     }, {});
 
     return categoryMap;
-  }
+  };
+
+  export const getEndgamesAndDocuments = async () => {
+    const collectionRef = collection(db, 'endgames');
+    const q = query(collectionRef);
+
+    const querySnapshot = await getDocs(q);
+    const endgamesMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+      const { title, items } = docSnapshot.data();
+      acc[title.toLowerCase()] = items;
+      return acc;
+    }, {});
+
+    return endgamesMap;
+  };
 
   export const createUserDocumentFromAuth = async (
     userAuth, 

@@ -1,30 +1,31 @@
 import { createContext, useState, useEffect } from 'react';
 
-import {getCategoriesAndDocuments} from '../utils/firebase/firebase.utils'
+import {getCategoriesAndDocuments,addCollectionAndDocuments } from '../utils/firebase/firebase.utils'
 
-export const CategoriesContext = createContext({
-    categoriesMap: {},
+import {MAINLINES} from "/Users/alexjiang/chess-website/src/routes/gallery/content/data.mainlines.js"
+export const OpeningsContext = createContext({
+    OpeningsMap: {},
 });
 
-export const CategoriesProvider = ({ children }) => {
-    const [categoriesMap, setCategoriesMap] = useState({});
+export const OpeningsProvider = ({ children }) => {
+    const [OpeningsMap, setOpeningsMap] = useState({});
     
     useEffect(() => {
         const getCategoriesMap = async () => {
             const categoryMap = await getCategoriesAndDocuments();
             console.log(categoryMap);
-            setCategoriesMap(categoryMap);
+            setOpeningsMap(categoryMap);
         };
 
         getCategoriesMap();
     }, []);
-    // useEffect(() => {
-    //     addCollectionAndDocuments('categories', MAINLINES)
-    // }, []);
-    const value = { categoriesMap };
+    useEffect(() => {
+        addCollectionAndDocuments('openings', MAINLINES)
+    }, []);
+    const value = { OpeningsMap };
     return (
-        <CategoriesContext.Provider value={value}>
+        <OpeningsContext.Provider value={value}>
             {children}
-        </CategoriesContext.Provider>
+        </OpeningsContext.Provider>
     );
 };
