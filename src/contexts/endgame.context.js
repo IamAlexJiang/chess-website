@@ -1,6 +1,9 @@
-import { createContext, useState, useEffect } from 'react';
-import { getEndgamesAndDocuments, addCollectionAndDocuments } from '../utils/firebase/firebase.utils';
-import { ENDGAMES } from '../routes/endgame/content/data.endgame'; // Correct import
+import { createContext, useState, useEffect } from "react";
+import {
+  getEndgamesAndDocuments,
+  addCollectionAndDocuments,
+} from "../utils/firebase/firebase.utils";
+import { ENDGAMES } from "../routes/endgame/content/data.endgame"; // Correct import
 
 export const EndgameContext = createContext({
   endgameMap: {},
@@ -12,20 +15,17 @@ export const EndgameProvider = ({ children }) => {
   useEffect(() => {
     const getEndgamesMap = async () => {
       const endgameMap = await getEndgamesAndDocuments();
-      console.log(endgameMap); // Check if data is logged
       setEndgamesMap(endgameMap);
     };
 
     getEndgamesMap();
   }, []);
-//     useEffect(() => {
-//       addCollectionAndDocuments('endgames', ENDGAMES)
-// }, []);
+  //     useEffect(() => {
+  //       addCollectionAndDocuments('endgames', ENDGAMES)
+  // }, []);
 
   const value = { endgameMap };
   return (
-    <EndgameContext.Provider value={value}>
-      {children}
-    </EndgameContext.Provider>
+    <EndgameContext.Provider value={value}>{children}</EndgameContext.Provider>
   );
 };
