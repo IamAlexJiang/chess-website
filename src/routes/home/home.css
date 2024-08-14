@@ -13,3 +13,20 @@
     right: 20%; /* Move title to the center horizontally */
     transform: translateX(-50%); /* Center title horizontally */
   }
+
+/* home.css */
+.top-right-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #3105aa; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display:   
+ inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}

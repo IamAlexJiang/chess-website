@@ -1,11 +1,14 @@
 import React from 'react';
-import './home.css'
+import './home.css';
 
 const Home = () => {
   return (
     <div>
-      <h1 className='home-page-title'>Home Page</h1>
+      <button className="Profile Image">My Button</button>
+      <button className="Signed in ">My Button</button>
       <p className='home-page-subtitle'>Welcome to the Chess Openings Gallery.</p>
+
+      {/* ... rest of your content */}
     </div>
   );
 };

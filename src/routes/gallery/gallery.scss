@@ -67,6 +67,10 @@
 
 .mainline-card-container .footer .description {
   margin: 10px 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .mainline-card-container .ratings {

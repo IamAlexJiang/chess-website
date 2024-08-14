@@ -18,7 +18,7 @@ export const MAINLINES = [
                 id: 2 ,
                 name: "Bishop's Opening",
                 description: 
-                    "The Bishop's Opening starts with 1.e4 e5 2.Bc4.",
+                    "Bishop's Opening is a chess opening that begins with the moves 1. e4 e5 2. Bc4.",
                 category: "King's Pawn",
                 cover: "Bishop's Opening.jpg",
                 Rating:{
@@ -221,7 +221,7 @@ export const MAINLINES = [
             {  
                 id: 28,
                 name: "Modern Defense",
-                escription: 
+                description: 
                     "Modern Defense starts with 1. e4 g6 2. d4 Bg7.",
                 category: "King's Pawn",
                 cover: "Modern Defense.jpg",

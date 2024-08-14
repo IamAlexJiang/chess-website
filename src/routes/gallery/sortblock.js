@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
 export const sortMainlines = (mainlines, sortBy) => {
   return [...mainlines].sort((a, b) => {
     switch (sortBy) {
-      case 'name':
+      case "name":
         return a.name.localeCompare(b.name);
-      case 'usage':
+      case "usage":
         return b.Rating.Usage - a.Rating.Usage;
-      case 'difficulty':
+      case "difficulty":
         return a.Rating.Difficulty - b.Rating.Difficulty;
       default:
         return 0;
@@ -15,11 +15,12 @@ export const sortMainlines = (mainlines, sortBy) => {
   });
 };
 
-
 const SortBlock = ({ handleSortChange }) => {
   return (
     <div id="sort-container">
-      <label id="sort-label" htmlFor="sort">Sort by:</label>
+      <label id="sort-label" htmlFor="sort">
+        Sort by:
+      </label>
       <select id="sort" onChange={(e) => handleSortChange(e.target.value)}>
         <option value="name">Name</option>
         <option value="usage">Usage</option>
