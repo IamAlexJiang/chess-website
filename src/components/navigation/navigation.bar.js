@@ -18,7 +18,7 @@ const Navigation = () => {
           <PawnLogo />
         </Link>
         <div className='nav-links-container'>
-          <Link className='nav-link' to='/gallery'>
+          <Link className='nav-link' to='/Gallery'>
             Gallery
           </Link>
           <Link className='nav-link' to='/endgame'>
@@ -26,6 +26,9 @@ const Navigation = () => {
           </Link>
           <Link className='nav-link' to='/board'>
             Board
+          </Link>
+          <Link className='nav-link' to='/course'> 
+            Course
           </Link>
             {currentUser ? (
               <span className='nav-link' onClick={signOutUser}>
